@@ -24,9 +24,23 @@ class NotesController extends Controller {
         // $card->notes()->create($request->all());
         //
         // option 5
-        $note = new Note(['body' => $request->body]);
-        $card->addNote($note);
+        // $note = new Note(['body' => $request->body]);
+        return $card;
+        $this->validate($request, [
+            'body' => 'required|min:10',
+        ]);
+
+        $note = new Note($request->all());
+        $card->addNote($note, 1);
         return back();
     }
 
+    public function edit(Note $note) {
+        return view('notes.edit', compact('note'));
+    }
+
+    public function update(Request $request, Note $note) {
+        $note->update($request->all());
+        return back();
+    }
 }
