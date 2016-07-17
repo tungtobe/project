@@ -23,4 +23,6 @@ Route::patch('/notes/{note}', 'NotesController@update');
 
 Route::auth();
 
-Route::get('/dashbroad', 'HomeController@index');
+Route::get('/dashbroad', 'HomeController@dashbroad');
+
+Route::get('/begin', 'PagesController@begin');

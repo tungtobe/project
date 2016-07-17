@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 class PagesController extends Controller {
-	public function home() {
+    public function home() {
+        $people = ['Tung', 'Chung', 'Vinh'];
+        return view('welcome', compact('people'));
+    }
 
-		$people = ['Tung', 'Chung', 'Vinh'];
-		return view('welcome', compact('people'));
-	}
+    public function begin() {
+        flash('This is my flash message', 'info');
 
-	public function about() {
-		return view('pages.about');
-	}
+        return redirect('/');
+    }
+
+    public function about() {
+        return view('pages.about');
+    }
 }
