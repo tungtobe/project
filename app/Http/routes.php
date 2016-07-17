@@ -20,3 +20,7 @@ Route::post('/cards/{card}/notes', 'NotesController@store');
 
 Route::get('/notes/{note}/edit', 'NotesController@edit');
 Route::patch('/notes/{note}', 'NotesController@update');
+
+Route::auth();
+
+Route::get('/dashbroad', 'HomeController@index');
